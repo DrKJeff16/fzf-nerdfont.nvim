@@ -4,3 +4,6 @@
 # Patching and CI
 /.pre-commit-config.yaml @DrKJeff16
 /scripts/deps.sh @DrKJeff16
+
+# Validation Module
+/lua/fzf-nerdfont/util/check.lua @DrKJeff16

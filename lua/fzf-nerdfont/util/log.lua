@@ -1,3 +1,5 @@
+local validate = require("fzf-nerdfont.util.check").validate
+
 --- @class FzfNerdfont.Log
 --- @field enabled? boolean
 local log = {}
@@ -10,6 +12,10 @@ local MAX_SCOPE = 15
 --- @param str string: the formatted string.
 --- @param ... any: the arguments of the formatted string.
 function log.debug(scope, str, ...)
+    validate({
+        scope = { scope, "string" },
+        str = { str, "string" },
+    })
     return log.notify(scope, vim.log.levels.DEBUG, false, str, ...)
 end
 
@@ -23,6 +29,12 @@ end
 --- @param str string: the formatted string.
 --- @param ... any: the arguments of the formatted string.
 function log.notify(scope, level, verbose, str, ...)
+    validate({
+        scope = { scope, "string" },
+        level = { level, "number" },
+        verbose = { verbose, "boolean" },
+        str = { str, "string" },
+    })
     if not (verbose and log.enabled) or vim.g.fzf_nerd_font_setup ~= 1 then
         return
     end
@@ -48,6 +60,7 @@ end
 ---
 --- @param options table: the options provided by the user.
 function log.warn_deprecation(options)
+    validate({ options = { options, "table" } })
     local uses_deprecated_option = false
     local notice = "is now deprecated, use `%s` instead."
     local root_deprecated = {

@@ -2,15 +2,21 @@ local fs = require("fzf-nerdfont.util.fs")
 local log = require("fzf-nerdfont.util.log")
 local config = require("fzf-nerdfont.config")
 
+local validate = require("fzf-nerdfont.util.check").validate
+local _unpack = unpack or table.unpack
+
 --- @class FzfNerdFont.Main
 local Main = {}
-
-local _unpack = unpack or table.unpack
 
 --- @param txt string
 --- @param bufnr integer
 --- @param win integer
 local function insert_text(txt, bufnr, win)
+    validate({
+        txt = { txt, "string" },
+        bufnr = { bufnr, "number" },
+        win = { win, "number" },
+    })
     local row, col = _unpack(vim.api.nvim_win_get_cursor(win))
     local line = _unpack(vim.api.nvim_buf_get_lines(bufnr, row - 1, row, false))
     local icon = txt:match("^(%S+)")
@@ -26,6 +32,11 @@ end
 --- @param bufnr integer
 --- @param win integer
 local function set_icon(selected, bufnr, win)
+    validate({
+        selected = { selected, { "table", "nil" } },
+        bufnr = { bufnr, "number" },
+        win = { win, "number" },
+    })
     if not selected or vim.tbl_isempty(selected) then
         return
     end

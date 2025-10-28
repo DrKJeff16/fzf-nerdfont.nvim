@@ -102,6 +102,32 @@ Sets the state to its original value.
 
 ==============================================================================
 ------------------------------------------------------------------------------
+@class ValidateSpec
+@field [1] any
+@field [2] vim.validate.Validator
+@field [3]? boolean
+@field [4]? string
+
+------------------------------------------------------------------------------
+                                                                  *FzfNerdCheck*
+                                 `FzfNerdCheck`
+Checks and validation wrappers.
+
+@class FzfNerdfont.Check
+
+------------------------------------------------------------------------------
+                                                             *legacy_validate()*
+                           `legacy_validate`({spec})
+@param spec table<string, vim.validate.Spec>
+
+------------------------------------------------------------------------------
+                                                       *FzfNerdCheck.validate()*
+                          `FzfNerdCheck.validate`({T})
+@param T table<string, vim.validate.Spec|ValidateSpec>
+
+
+==============================================================================
+------------------------------------------------------------------------------
                                                             *fs.get_separator()*
                               `fs.get_separator`()
 @return "\\"|"/"

@@ -1,6 +1,8 @@
 local log = require("fzf-nerdfont.util.log")
 local fs = require("fzf-nerdfont.util.fs")
 
+local validate = require("fzf-nerdfont.util.check").validate
+
 --- @class FzfNerdFont.Config
 local FzfNerdConfig = {}
 
@@ -23,6 +25,7 @@ FzfNerdConfig.options = {}
 ---
 --- @param options? FzfNerdFontOpts Module config table. See |FzfNerdfont.options|.
 function FzfNerdConfig.setup(options)
+    validate({ options = { options, { "table", "nil" } } })
     FzfNerdConfig.options = vim.tbl_deep_extend("keep", options or {}, FzfNerdConfig.defaults)
 
     vim.fn.mkdir(FzfNerdConfig.options.glyphs_dir, "p")

@@ -1,3 +1,5 @@
+FzfNerdCheck	fzf-nerdfont.txt	/*FzfNerdCheck*
+FzfNerdCheck.validate()	fzf-nerdfont.txt	/*FzfNerdCheck.validate()*
 FzfNerdConfig	fzf-nerdfont.txt	/*FzfNerdConfig*
 FzfNerdConfig.defaults	fzf-nerdfont.txt	/*FzfNerdConfig.defaults*
 FzfNerdConfig.options	fzf-nerdfont.txt	/*FzfNerdConfig.options*
@@ -12,6 +14,7 @@ fs.get_separator()	fzf-nerdfont.txt	/*fs.get_separator()*
 fs.join_path()	fzf-nerdfont.txt	/*fs.join_path()*
 get_glyphs_file()	fzf-nerdfont.txt	/*get_glyphs_file()*
 insert_text()	fzf-nerdfont.txt	/*insert_text()*
+legacy_validate()	fzf-nerdfont.txt	/*legacy_validate()*
 log	fzf-nerdfont.txt	/*log*
 log.debug()	fzf-nerdfont.txt	/*log.debug()*
 log.notify()	fzf-nerdfont.txt	/*log.notify()*
