@@ -6,8 +6,8 @@
 		"MiniTest"
 	],
 	"diagnostics.disable": [
-	    "undefined-global",
-	    "inject-field"
+			"undefined-global",
+			"inject-field"
 	],
 	"diagnostics.libraryFiles": "Opened",
 	"runtime.path": [
